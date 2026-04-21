@@ -1,15 +1,15 @@
-# envsafe
+# envzy
 
 Safe environment variable parsing and validation for Node.js.
 
-envsafe helps you define a schema for environment variables and ensures they are validated at startup, preventing runtime crashes caused by missing or invalid configuration.
+envzy helps you define a schema for environment variables and ensures they are validated at startup, preventing runtime crashes caused by missing or invalid configuration.
 
 ---
 
 ## Installation
 
 ```bash
-npm install envsafe
+npm install envzy
 ```
 
 ---
@@ -17,7 +17,7 @@ npm install envsafe
 ## Usage
 
 ```js
-import { env, string, number, boolean } from "envsafe"
+import { env, string, number, boolean } from "envzy"
 
 export const config = env({
   DATABASE_URL: string(),
@@ -37,7 +37,7 @@ console.log(config.PORT)
 
 ## How it works
 
-envsafe reads values from process.env, validates them against your schema, and returns a configuration object.
+envzy reads values from process.env, validates them against your schema, and returns a configuration object.
 
 If a variable is missing or invalid, the app fails immediately with a clear error message.
 
