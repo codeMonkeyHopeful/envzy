@@ -1,7 +1,7 @@
 import { env } from "../src/env.js"
 import { boolean, enums, number, string } from "../src/schema.js"
 
-describe("envsafe - env()", () => {
+describe("envzy - env()", () => {
   beforeEach(() => {
     process.env.PORT = "3000"
     process.env.DATABASE_URL = "postgres://test"
@@ -44,7 +44,7 @@ describe("envsafe - env()", () => {
 })
 
 
-describe("envsafe - default()", () => {
+describe("envzy - default()", () => {
   afterEach(() => {
     delete process.env.PORT
   })
@@ -69,7 +69,7 @@ describe("envsafe - default()", () => {
 })
 
 
-describe("envsafe - optional()", () => {
+describe("envzy - optional()", () => {
   afterEach(() => {
     delete process.env.PORT
   })
@@ -95,7 +95,7 @@ describe("envsafe - optional()", () => {
 
 
 
-describe("envsafe - boolean()", () => {
+describe("envzy - boolean()", () => {
   afterEach(() => {
     delete process.env.DEBUG
   })
@@ -142,7 +142,7 @@ describe("envsafe - boolean()", () => {
 })
 
 
-describe("envsafe - enums()", () => {
+describe("envzy - enums()", () => {
   afterEach(() => {
     delete process.env.NODE_ENV
   })
