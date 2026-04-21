@@ -58,7 +58,7 @@ If a variable is missing or invalid, the app fails immediately with a clear erro
 
 - No framework lock-in
 - No runtime overhead beyond validation
-- No external dependencies
+- Minimal external dependencies
 - Easy to use in any Node.js project
 
 ---
@@ -67,8 +67,6 @@ If a variable is missing or invalid, the app fails immediately with a clear erro
 
 - Better error formatting
 - .env file loading support
-- Nested config objects
-- TypeScript inference improvements
 
 ---
 
