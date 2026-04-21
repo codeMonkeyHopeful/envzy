@@ -9,7 +9,7 @@ envzy helps you define a schema for environment variables and ensures they are v
 ## Installation
 
 ```bash
-npm install envzy
+npm install @codemonkeyhopeful/envzy
 ```
 
 ---
@@ -17,7 +17,7 @@ npm install envzy
 ## Usage
 
 ```js
-import { env, string, number, boolean } from "envzy"
+import { env, string, number, boolean } from "@codemonkeyhopeful/envzy"
 
 export const config = env({
   DATABASE_URL: string(),

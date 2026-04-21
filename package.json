@@ -1,5 +1,5 @@
 {
-  "name": "envzy",
+  "name": "@codemonkeyhopeful/envzy",
   "version": "1.0.0",
   "description": "Safe environment variable parsing and validation for .env files",
   "type": "module",
