@@ -2,7 +2,6 @@
   "name": "envsafe",
   "version": "1.0.0",
   "description": "Safe environment variable parsing and validation for .env files",
-  "main": "./src/index.js",
   "type": "module",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules jest"
@@ -15,7 +14,9 @@
     "README.md"
   ],
   "exports": {
-    ".": "./src/index.js"
+    ".": {
+      "import": "./src/index.js"
+    }
   },
   "engines": {
     "node": ">=18"
@@ -30,5 +31,6 @@
   "devDependencies": {
     "@jest/globals": "^30.3.0",
     "jest": "^30.3.0"
-  }
+  },
+  "sideEffects": false
 }
