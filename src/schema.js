@@ -1,10 +1,9 @@
-import { withDefault } from "./utils.js"
+import { withDefault, withOptional } from "./utils.js"
 
-// String parsing rule
 export const string = () => {
   const rule = {
     parse(value, key) {
-      if (value === undefined || value === null || value === "") {
+      if (value === undefined || value === "" || String(value).trim() === "") {
         throw new Error(`${key} is required`)
       }
       return value
@@ -12,6 +11,7 @@ export const string = () => {
   }
 
   rule.default = (def) => withDefault(rule, def)
+  rule.optional = () => withOptional(rule)
 
   return rule
 }
@@ -20,7 +20,7 @@ export const string = () => {
 export const number = () => {
   const rule = {
     parse(value, key) {
-      if (value === undefined || value === null || value === "") {
+      if (value === undefined || value === "" || String(value).trim() === "") {
         throw new Error(`${key} is required`)
       }
 
@@ -35,6 +35,7 @@ export const number = () => {
   }
 
   rule.default = (def) => withDefault(rule, def)
+  rule.optional = () => withOptional(rule)
 
   return rule
 }
