@@ -4,7 +4,7 @@
   "description": "Safe environment variable parsing and validation for .env files",
   "main": "./src/index.js",
   "type": "module",
-    "scripts": {
+  "scripts": {
     "test": "node --test"
   },
   "keywords": [],
@@ -20,9 +20,11 @@
   "engines": {
     "node": ">=18"
   },
-
   "repository": {
     "type": "git",
     "url": "https://github.com/codeMonkeyHopeful/envsafe"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2"
   }
 }

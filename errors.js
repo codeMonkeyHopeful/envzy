@@ -1,18 +1,31 @@
-export const formatEnvError = (errors) => {
-  let message = "❌ Environment validation failed\n\n"
+import chalk from "chalk"
+
+const title = chalk.red.bold
+const label = chalk.yellow
+const detail = chalk.gray
+const fail = chalk.red
+
+const spacer = "\n"
+const line = (text) => `${text}${spacer}`
+
+export function formatEnvError(errors) {
+  let message = title(line("❌ Environment validation failed"))
 
   for (const err of errors) {
-    message += `• ${err.key}\n`
+    message += spacer
+    message += label(line(`• ${err.key}`))
 
     if (err.type === "required") {
-      message += `  → Required but not set\n\n`
+      message += fail(line("  → Required but not set"))
     }
 
     if (err.type === "invalid") {
-      message += `  → Expected: ${err.expected}\n`
-      message += `  → Received: ${JSON.stringify(err.received)}\n\n`
+      message += detail(line(`  → Expected: ${err.expected}`))
+      message += detail(line(`  → Received: ${JSON.stringify(err.received)}`))
     }
   }
 
-  return message.trim()
+  message += spacer
+
+  return message
 }
