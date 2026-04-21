@@ -49,3 +49,40 @@ export const number = () => {
 
   return rule
 }
+
+// -------------------- BOOLEAN --------------------
+
+export const boolean = () => {
+  const rule = {
+    parse(value, key) {
+      if (isEmpty(value)) {
+        throw requiredError(key)
+      }
+
+      const normalized = String(value).trim().toLowerCase()
+
+      const valid =
+        normalized === "true" ||
+        normalized === "false" ||
+        normalized === "1" ||
+        normalized === "0" ||
+        normalized === "yes" ||
+        normalized === "no"
+
+      if (!valid) {
+        throw invalidError(key, "boolean", value)
+      }
+
+      return (
+        normalized === "true" ||
+        normalized === "1" ||
+        normalized === "yes"
+      )
+    }
+  }
+
+  rule.default = (def) => withDefault(rule, def)
+  rule.optional = () => withOptional(rule)
+
+  return rule
+}

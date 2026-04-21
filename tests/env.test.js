@@ -1,5 +1,5 @@
 import { env } from "../src/env.js"
-import { number, string } from "../src/schema.js"
+import { boolean, number, string } from "../src/schema.js"
 
 describe("envsafe - env()", () => {
   beforeEach(() => {
@@ -90,5 +90,53 @@ describe("envsafe - optional()", () => {
     })
 
     expect(config.PORT).toBe(3000)
+  })
+})
+
+
+
+describe("envsafe - boolean()", () => {
+  afterEach(() => {
+    delete process.env.DEBUG
+  })
+
+  test("parses true values", () => {
+    process.env.DEBUG = "true"
+
+    const config = env({
+      DEBUG: boolean()
+    })
+
+    expect(config.DEBUG).toBe(true)
+  })
+
+  test("parses false values", () => {
+    process.env.DEBUG = "false"
+
+    const config = env({
+      DEBUG: boolean()
+    })
+
+    expect(config.DEBUG).toBe(false)
+  })
+
+  test("supports 1/0", () => {
+    process.env.DEBUG = "1"
+
+    const config = env({
+      DEBUG: boolean()
+    })
+
+    expect(config.DEBUG).toBe(true)
+  })
+
+  test("throws on invalid value", () => {
+    process.env.DEBUG = "maybe"
+
+    expect(() =>
+      env({
+        DEBUG: boolean()
+      })
+    ).toThrow()
   })
 })
