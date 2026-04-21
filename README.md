@@ -1,5 +1,5 @@
 # envsafe
-
+// TODO: DOCUMENT THAT DEFAULT SHOULD ALWAYS BE AT THE END OTHERWISE UNEXPECTED BEHAIOR WITH OPTIONAL
 Safe environment variable parsing and validation for Node.js.
 
 envsafe helps you define a schema for environment variables and ensures they are validated at startup, preventing runtime crashes caused by missing or invalid configuration.
