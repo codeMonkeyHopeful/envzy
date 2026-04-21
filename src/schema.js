@@ -89,7 +89,7 @@ export const boolean = () => {
 
 
 // -------------------- ENUM --------------------
-export const enum_ = (allowedValues) => {
+export const enums = (allowedValues) => {
   const rule = {
     parse(value, key) {
       if (isEmpty(value)) {
