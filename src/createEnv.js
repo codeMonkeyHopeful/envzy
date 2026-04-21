@@ -1,7 +1,7 @@
 export function createEnv(schema) {
   const config = {}
 
-  for (const key in schema) {
+ for (const key of Object.keys(schema)) {
     const rule = schema[key]
     const value = process.env[key]
 
